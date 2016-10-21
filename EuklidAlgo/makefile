@@ -1,42 +1,49 @@
 # see for more information README.md
-JC = javac
-JCFLAGS = -g
-JBINDIR = bin	# :-) BITTE KEIN SLASH AM ANFANG VOM PFAD 'bin' SETZEN! 
+BIN = ./bin/
+		# :-) BITTE KEIN SLASH AM ANFANG VOM PFAD 'bin' SETZEN! 
 		# Erlaubt: ./bin oder bin; 
 		# Kritisch: /bin  :-) Beim Aufruf vom Target/Goal 'clean' oder 'distclean' mit Adminrechte könnte es Probleme geben!
 JAVA = java
+JC = javac
+JCFLAGS = -g
 JAVAFLAGS = -cp
 
 JDOC = javadoc
-JDOCDIR = java-doc
-
+JDOCDIR = doc
+LIB=./lib/
+SRC=./src/
 MAINCLASS= Main
-TEST= MainTest
-SOURCES = 	./src/Main.java \
+TESTCLASS= MainTest
+JAVASRC= 	./src/Main.java \
 			./src/MainTest.java \
+
+LIBPATH= $(LIB)junit-4.12.jar:$(LIB)hamcrest-core-1.3.jar
 
 default:
 	echo 'Run target default'
-	mkdir -p $(JBINDIR)
-	$(JC) $(JCFLAGS) $(SOURCES) -d $(JBINDIR)
+	mkdir -p $(BIN)
+	$(JC) $(JCFLAGS) $(JAVAFLAGS) $(LIBPATH) -d $(BIN) $(JAVASRC)
 
 run-app:
 	@echo 'Run target run'
-	cd $(JBINDIR); $(JAVA) $(JAVAFLAGS) . $(MAINCLASS)	
+	cd $(BIN); $(JAVA) $(JAVAFLAGS) . $(MAINCLASS)	
 
 doc:
 	@echo 'Run target doc' 
-	$(JDOC) -version -author -d $(JDOCDIR) $(SOURCES)	
+	$(JDOC)  -d $(JDOCDIR) $(JAVASRC)	
 
 run-test:
 	@echo 'Run target test'
-	cd $(JBINDIR); $(JAVA) $(JAVAFLAGS) . $(TEST)
+	$(JAVA) $(JAVAFLAGS) $(BIN):$(LIBPATH) org.junit.runner.JUnitCore $(TESTCLASS)
 
 clean:
 	@echo 'Run target clean'
-	$(RM) -r $(JBINDIR)
+	$(RM) -r $(BIN)
+
 
 distclean: clean
+#wenn Clock skew detected
+#	find . -exec touch {} \;
 	@echo 'Run target distclean'
 	$(RM) -r $(JDOCDIR)
 
