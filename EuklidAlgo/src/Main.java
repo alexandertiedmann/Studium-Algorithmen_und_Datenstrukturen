@@ -5,6 +5,7 @@ public class Main {
         int wahl = 0;
         int zahl1 = 0;
         int zahl2 = 0;
+        //bis das Programm beendet wird immer wieder das Menue aufrufen
         while (wahl != 9){
             System.out.println("1: Euklidischer Algoritmus");
             System.out.println("2: Euklidischer Algoritmus Modulo");
@@ -24,6 +25,12 @@ public class Main {
         }
     }
 
+    /**
+     * Auswahlmenue fuer das Terminal
+     * @param wahl Auswahl der Funktion die ausgefuehrt werden soll
+     * @param a Zahl1
+     * @param b Zahl2
+     */
     public static void menueWahl(int wahl, int a, int b){
         switch (wahl) {
             case 1:
@@ -46,6 +53,12 @@ public class Main {
         }
     }
 
+    /**
+     * Euklidischer Algorithmus zum bestimmen des ggT
+     * @param a Zahl1
+     * @param b Zahl2
+     * @return ggT
+     */
     public static int Euklid(int a, int b){
         if (a == 0){
             return b;
@@ -62,6 +75,12 @@ public class Main {
         return a;
     }
 
+    /**
+     * Euklidischer Algorithmus zum bestimmen des ggT
+     * @param a Zahl1
+     * @param b Zahl2
+     * @return ggT
+     */
     public static int EuklidRekursiv(int a, int b){
         if (b == 0){
             return a;
@@ -78,6 +97,12 @@ public class Main {
         }
     }
 
+    /**
+     * Euklidischer Algorithmus zum bestimmen des ggT
+     * @param a Zahl1
+     * @param b Zahl2
+     * @return ggT
+     */
     public static int EuklidMod(int a, int b){
         int h = 0;
         while (b != 0){
@@ -88,6 +113,12 @@ public class Main {
         return a;
     }
 
+    /**
+     * Euklidischer Algorithmus zum bestimmen des ggT
+     * @param a Zahl1
+     * @param b Zahl2
+     * @return ggT
+     */
     public static int EuklidModRekursiv(int a, int b){
         if (b == 0){
             return a;
