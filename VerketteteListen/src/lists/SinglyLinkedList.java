@@ -1,7 +1,4 @@
 package lists;
-
-import com.sun.org.apache.xpath.internal.SourceTree;
-
 public class SinglyLinkedList<T> implements Listable<T> {
 
     private Node head;
@@ -16,7 +13,6 @@ public class SinglyLinkedList<T> implements Listable<T> {
         Node newNode = new Node();
         newNode.data = data;
         newNode.next = null;
-
         if (head == null) {
             head = newNode;
         } else {
@@ -52,13 +48,19 @@ public class SinglyLinkedList<T> implements Listable<T> {
         return null;
     }
 
-    public SinglyLinkedList() {
-
-    }
-
     @Override
     public void clear() {
         head = null;
+    }
+
+    @Override
+    public boolean isEmpty(){
+        Node temp = head;
+        if (temp == null){
+            return true;
+        }else {
+            return false;
+        }
     }
 
     @Override
@@ -69,7 +71,7 @@ public class SinglyLinkedList<T> implements Listable<T> {
             count++;
             temp = temp.next;
         }
-        return 0;
+        return count;
     }
 
     @Override

@@ -19,6 +19,8 @@ public class DoublyLinkedList<T> implements Listable<T> {
 
         if (head == null){
             head = newNode;
+            newNode.prev = null;
+            tail = newNode;
         }else{
             Node temp = head;
             while (temp.next != null){
@@ -43,13 +45,19 @@ public class DoublyLinkedList<T> implements Listable<T> {
         return null;
     }
 
-    public DoublyLinkedList() {
+    @Override
+    public void clear() {
 
     }
 
     @Override
-    public void clear() {
-
+    public boolean isEmpty(){
+        Node temp = head;
+        if (temp == null){
+            return true;
+        }else {
+            return false;
+        }
     }
 
     @Override
@@ -59,6 +67,12 @@ public class DoublyLinkedList<T> implements Listable<T> {
 
     @Override
     public void printAll() {
-
+        System.out.println(this.getClass().getSimpleName());
+        Node temp = head;
+        //Endlosschleife
+        /*while (temp != null){
+            System.out.println(temp.data);
+            temp = temp.next;
+        }*/
     }
 }

@@ -1,7 +1,9 @@
 package main;
 
 import data.Student;
+import lists.Listable;
 import lists.SinglyLinkedList;
+import lists.DoublyLinkedList;
 
 public class Main {
     public static void main(String[] args) {
@@ -10,7 +12,8 @@ public class Main {
         Student s3 = new Student("Klein","Kind",003,1);
 
         //lists.Listable<Student> list = new DoublyLinkedList<Student>();
-        lists.Listable<Student> list = new SinglyLinkedList<Student>();
+        Listable<Student> list = new SinglyLinkedList<Student>();
+        System.out.println("Die Liste leer:" + list.isEmpty());
 
         list.add(s1);
         list.add(s2);
@@ -20,5 +23,6 @@ public class Main {
 
         System.out.println(list.getSize());
         System.out.println(list.get(2));
+        System.out.println("Die Liste leer:" + list.isEmpty());
     }
 }

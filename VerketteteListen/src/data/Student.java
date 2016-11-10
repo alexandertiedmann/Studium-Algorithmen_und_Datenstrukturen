@@ -6,6 +6,13 @@ public class Student {
     private int mn;
     private int gender;
 
+    public Student(String prename, String surname, int mn, int gender) {
+        this.prename = prename;
+        this.surname = surname;
+        this.mn = mn;
+        this.gender = gender;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
@@ -14,13 +21,6 @@ public class Student {
                 ", mn=" + mn +
                 ", gender=" + gender +
                 '}';
-    }
-
-    public Student(String prename, String surname, int mn, int gender) {
-        this.prename = prename;
-        this.surname = surname;
-        this.mn = mn;
-        this.gender = gender;
     }
 
     public String getPrename() {

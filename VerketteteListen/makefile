@@ -19,8 +19,14 @@ LIBPATH= $(LIB)junit-4.12.jar:$(LIB)hamcrest-core-1.3.jar
 //Package.Class = ausführen nach compilieren
 MAINCLASS= Main
 TESTCLASS= MainTest
-JAVASRC= 	./src/Main.java \
-			./src/MainTest.java \
+JAVASRC= 	./src/main/Main.java \
+			./src/lists/DoublyLinkedList.java \
+			./src/lists/SinglyLinkedList.java \
+			./src/lists/Listable.java \
+			./src/data/Student.java \
+			./src/test/TestDoublyLinkedList.java \
+			./src/test/TestSinglyLinkedList.java \
+			./src/test/TestStudent.java \
 
 #Methoden
 default:
