@@ -31,7 +31,20 @@ public class SinglyLinkedList<T> implements Listable<T> {
 
     @Override
     public void remove(int index) {
+        int count = 0;
+        Node temp = head;
+        while ( temp != null){
+            if (count == index-1){
 
+            }
+            if (count == index){
+                temp.data = null;
+                //schneidet auch alle weiteren ab:
+                temp.next = null;
+            }
+            temp = temp.next;
+            count++;
+        }
     }
 
     @Override
